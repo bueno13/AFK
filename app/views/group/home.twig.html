@@ -1,10 +1,9 @@
 {% extends "base.twig.html" %}
 
-{% block title %}Login{% endblock %}
+{% block title %}{{ nom }}{% endblock %}
 
 {% block head %}
-	    	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-	    	<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+			{{ parent() }}
 	    	<link rel="stylesheet" href="groupstyle.css">
 {% endblock %}
 
@@ -16,12 +15,11 @@
 			<div class="jumbotron">
 				<div class="col-md-offset-3 ">
 		    		<h1>
-						GROUP NAME
-					<!--Nom du groupe  à afficher -->
+		    			{{ groupname }}
 					</h1>
 
 					<p>
-						Group description
+						{{ groupdescription }}
 					</p>
 				</div>
 			</div>
@@ -36,7 +34,12 @@
 						<div class="col-md-3 ">
 							<h1>Evenements</h1>
 
-							<!-- AFFICHER LISTE MEMBRES -->
+							{% for p in events %}
+									<div class="user-info-box col-md-2 col-xs-6">
+										<a href="/event/{{ p }}"><img alt="" src="/event/{{ p }}/ppic"></a>
+										<p>{{ p }}</p>
+									</div>
+								{% endfor %}
 						</div>
 						
 
@@ -54,106 +57,29 @@
 								<h2>Derniers posts</h2>
 
 
-								<!-- AFFICHER LES 5 DERNIERS POSTS -->
+								{% for p in members %}
+									<div class="box">
+										<a href="/profile/{{ p }}"><img alt="" src="/profile/{{ p }}/ppic"></a>
+										<p>{{ p }}</p>
+										</div>
+										{{ message }}
+									</div>
 
-
-								<p class="box">
-									Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In
-									id erat non orci commodo lobortis.  Proin neque massa,
-									cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.
-									Praesent fermentum tempor tellus.  Nullam tempus.  Mauris
-									ac felis vel velit tristique imperdiet.  Donec at pede.
-									Etiam vel neque nec dui dignissim bibendum.  Vivamus id
-									enim.  Phasellus neque orci, porta a, aliquet quis, semper
-									a, massa.  Phasellus purus.  Pellentesque tristique
-									imperdiet tortor.  Nam euismod tellus id erat.
-								</p>
-								<p class="box">
-									Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In
-									id erat non orci commodo lobortis.  Proin neque massa,
-									cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.
-									Praesent fermentum tempor tellus.  Nullam tempus.  Mauris
-									ac felis vel velit tristique imperdiet.  Donec at pede.
-									Etiam vel neque nec dui dignissim bibendum.  Vivamus id
-									enim.  Phasellus neque orci, porta a, aliquet quis, semper
-									a, massa.  Phasellus purus.  Pellentesque tristique
-									imperdiet tortor.  Nam euismod tellus id erat.
-								</p>
-								<p class="box">
-									Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In
-									id erat non orci commodo lobortis.  Proin neque massa,
-									cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.
-									Praesent fermentum tempor tellus.  Nullam tempus.  Mauris
-									ac felis vel velit tristique imperdiet.  Donec at pede.
-									Etiam vel neque nec dui dignissim bibendum.  Vivamus id
-									enim.  Phasellus neque orci, porta a, aliquet quis, semper
-									a, massa.  Phasellus purus.  Pellentesque tristique
-									imperdiet tortor.  Nam euismod tellus id erat.
-								</p>
-								<p class="box">
-									Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In
-									id erat non orci commodo lobortis.  Proin neque massa,
-									cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.
-									Praesent fermentum tempor tellus.  Nullam tempus.  Mauris
-									ac felis vel velit tristique imperdiet.  Donec at pede.
-									Etiam vel neque nec dui dignissim bibendum.  Vivamus id
-									enim.  Phasellus neque orci, porta a, aliquet quis, semper
-									a, massa.  Phasellus purus.  Pellentesque tristique
-									imperdiet tortor.  Nam euismod tellus id erat.
-								</p>
-								<p class="box">
-									Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In
-									id erat non orci commodo lobortis.  Proin neque massa,
-									cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.
-									Praesent fermentum tempor tellus.  Nullam tempus.  Mauris
-									ac felis vel velit tristique imperdiet.  Donec at pede.
-									Etiam vel neque nec dui dignissim bibendum.  Vivamus id
-									enim.  Phasellus neque orci, porta a, aliquet quis, semper
-									a, massa.  Phasellus purus.  Pellentesque tristique
-									imperdiet tortor.  Nam euismod tellus id erat.
-								</p>
-								<p class="box">
-									Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In
-									id erat non orci commodo lobortis.  Proin neque massa,
-									cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.
-									Praesent fermentum tempor tellus.  Nullam tempus.  Mauris
-									ac felis vel velit tristique imperdiet.  Donec at pede.
-									Etiam vel neque nec dui dignissim bibendum.  Vivamus id
-									enim.  Phasellus neque orci, porta a, aliquet quis, semper
-									a, massa.  Phasellus purus.  Pellentesque tristique
-									imperdiet tortor.  Nam euismod tellus id erat.
-								</p>
-								<p class="box">
-									Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In
-									id erat non orci commodo lobortis.  Proin neque massa,
-									cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.
-									Praesent fermentum tempor tellus.  Nullam tempus.  Mauris
-									ac felis vel velit tristique imperdiet.  Donec at pede.
-									Etiam vel neque nec dui dignissim bibendum.  Vivamus id
-									enim.  Phasellus neque orci, porta a, aliquet quis, semper
-									a, massa.  Phasellus purus.  Pellentesque tristique
-									imperdiet tortor.  Nam euismod tellus id erat.
-								</p>
-								<p class="box">
-									Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In
-									id erat non orci commodo lobortis.  Proin neque massa,
-									cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.
-									Praesent fermentum tempor tellus.  Nullam tempus.  Mauris
-									ac felis vel velit tristique imperdiet.  Donec at pede.
-									Etiam vel neque nec dui dignissim bibendum.  Vivamus id
-									enim.  Phasellus neque orci, porta a, aliquet quis, semper
-									a, massa.  Phasellus purus.  Pellentesque tristique
-									imperdiet tortor.  Nam euismod tellus id erat.
-								</p>
-
-								
+								{% endfor %}  
 
 
 							</div>
+
 							<div class="col-md-2 ">
 								<h1>Membres</h1>
+								{% for p in members %}
+									<div class="user-info-box col-md-2 col-xs-6">
+										<a href="/profile/{{ p }}"><img alt="" src="/profile/{{ p }}/ppic"></a>
+										<p>{{ p }}</p>
+									</div>
+								{% endfor %}
 
-								<!-- AFFICHER LISTE MEMBRES -->
+								
 							</div>
 
 					</div>
