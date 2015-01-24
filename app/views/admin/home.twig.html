@@ -1,0 +1,71 @@
+{% extends "base.twig.html" %}
+
+{% block title %}{{ nom }}{% endblock %}
+
+{% block head %}
+			{{ parent() }}
+	    	<link rel="stylesheet" href="/assets/css/adminstyle.css">
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+
+			<div class="jumbotron">
+				<div class="col-md-offset-3 ">
+		    		<h1>
+		    			Panneau d'administration
+					</h1>
+
+					<p>
+						Gérez les utilisateurs, groupes et évènements d'AFK.
+					</p>
+				</div>
+			</div>
+
+			<div class="container">
+
+
+				<div class="row">
+
+
+
+						<div class="col-md-4 ">
+								<h1>Membres</h1>
+								{% for p in members %}
+									<div class="user-info-box col-md-2 col-xs-6">
+										<p>{{ p }}</p>
+									</div>
+								{% endfor %}
+
+								
+						</div>
+
+				    	<div class="col-md-4">
+
+								<h2>Groupes</h2>
+
+
+								{% for p in groups %}
+									<p>{{ p }}</p>
+
+								{% endfor %}  
+
+
+						</div>
+
+						<div class="col-md-4 ">
+								<h1>Evènements</h1>
+								{% for p in events %}
+									<p>{{ p }}</p>
+									
+								{% endfor %}							
+						</div>
+
+							
+
+					</div>
+
+			</div>
+{% endblock %}
